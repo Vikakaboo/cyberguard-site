@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBERGUARD | Пароли и защита</title>
+
+<style>
+:root {
+    --bg: #080b14;
+    --panel: #111827;
+    --blue: #38bdf8;
+    --purple: #a78bfa;
+    --text: #e5edf9;
+    --muted: #9caec8;
+    --border: rgba(148,163,184,.18);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(ellipse at 10% 0%, #172554 0, transparent 35%),
+        radial-gradient(ellipse at 95% 25%, #2e1065 0, transparent 30%),
+        var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 16px 7%;
+    background: rgba(8,11,20,.88);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--blue);
+}
+
+.navlinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.navlinks a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.navlinks a:hover {
+    color: var(--blue);
+    background: #172033;
+}
+
+.hero {
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.hero-text { max-width: 700px; }
+
+.eyebrow, .tag {
+    display: inline-block;
+    color: var(--blue);
+    border: 1px solid #2563eb;
+    border-radius: 30px;
+    padding: 5px 12px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.gradient {
+    background: linear-gradient(90deg, var(--blue), var(--purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+p { color: var(--muted); }
+
+.hero p { font-size: 18px; }
+
+.lock {
+    width: 150px;
+    height: 150px;
+    border-radius: 35px;
+    border: 1px solid #818cf8;
+    background: linear-gradient(135deg, #10243b, #211641);
+    display: grid;
+    place-items: center;
+    font-size: 75px;
+    box-shadow: 0 0 55px #818cf833;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.button {
+    display: inline-block;
+    padding: 13px 20px;
+    margin: 8px 8px 0 0;
+    border-radius: 10px;
+    background: linear-gradient(100deg, #38bdf8, #818cf8);
+    color: #07111f;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .25s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px #38bdf844;
+}
+
+.button.secondary {
+    background: transparent;
+    border: 1px solid #52617a;
+    color: var(--text);
+}
+
+main {
+    width: 88%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.section {
+    padding: 30px 0;
+    scroll-margin-top: 85px;
+}
+
+.section-title {
+    font-size: clamp(27px, 4vw, 40px);
+    margin-bottom: 8px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    padding: 24px;
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg, #141e30dd, #0d1320ee);
+    border-radius: 18px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf866;
+    box-shadow: 0 12px 35px #0005;
+}
+
+.card-icon {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.card h3 { margin-top: 5px; }
+
+.callout {
+    margin-top: 20px;
+    padding: 20px;
+    border-left: 4px solid var(--blue);
+    background: #102238;
+    border-radius: 0 12px 12px 0;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+table {
+    width: 100%;
+    min-width: 570px;
+    border-collapse: collapse;
+    background: #0e1421;
+}
+
+th, td {
+    padding: 16px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background: #17243a;
+    color: var(--blue);
+}
+
+tr:last-child td { border-bottom: 0; }
+tr:hover td { background: #162238; }
+
+.next {
+    text-align: center;
+    padding: 40px 25px;
+    margin: 40px 0 60px;
+    border: 1px solid #38466b;
+    border-radius: 24px;
+    background: linear-gradient(130deg, #12223b, #21183e);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+@media(max-width:600px) {
+    nav { padding: 14px 5%; }
+    .hero { padding: 60px 6%; }
+    .lock { width: 120px; height: 120px; font-size: 60px; }
+    main { width: 90%; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">◈ CYBERGUARD</div>
+    <div class="navlinks">
+        <a href="index.html">← Част 1</a>
+        <a href="#passwords">Пароли</a>
+        <a href="#managers">Мениджъри</a>
+        <a href="#twofa">2FA</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-text">
+        <span class="eyebrow">DIGITAL SECURITY · 02</span>
+        <h1>Защити акаунтите си.<br><span class="gradient">Поеми контрола.</span></h1>
+        <p>
+            Силните пароли, надеждните мениджъри и двуфакторната
+            автентикация са основни инструменти за защита на дигиталния ти живот.
+        </p>
+        <a class="button" href="#passwords">Започни обучението ↓</a>
+        <a class="button secondary" href="index.html">← Част 1</a>
+    </div>
+    <div class="lock">🔐</div>
+</header>
+
+<main>
+
+<section class="section" id="passwords">
+    <span class="tag">01 / PASSWORDS</span>
+    <h2 class="section-title">Силата на паролата</h2>
+    <p>Добрата парола е дълга, уникална и трудна за отгатване.</p>
+
+    <div class="grid">
+        <article class="card">
+            <div class="card-icon">📏</div>
+            <h3>Дължина</h3>
+            <p>Използвай дълги пароли. Поне 15 символа е добър ориентир за важни лични акаунти.</p>
+        </article>
+        <article class="card">
+            <div class="card-icon">🧩</div>
+            <h3>Уникалност</h3>
+            <p>Използвай различна парола за всяка услуга, за да ограничиш щетите при изтичане.</p>
+        </article>
+        <article class="card">
+            <div class="card-icon">🎲</div>
+            <h3>Случайност</h3>
+            <p>Предпочитай случайно генерирани пароли или дълги фрази, които не са лесни за отгатване.</p>
+        </article>
+    </div>
+
+    <div class="callout">
+        Никога не използвай рождена дата, име или една и съща парола навсякъде.
+    </div>
+</section>
+
+<section class="section" id="managers">
+    <span class="tag">02 / PASSWORD MANAGERS</span>
+    <h2 class="section-title">Твоят цифров сейф</h2>
+    <p>
+        Мениджърите на пароли съхраняват данните за вход и помагат
+        да използваш различна силна парола за всеки акаунт.
+    </p>
+
+    <div class="grid">
+        <article class="card">
+            <div class="card-icon">🛡</div>
+            <h3>Bitwarden</h3>
+            <p>Предлага безплатен план, генериране на пароли и платени допълнителни функции.</p>
+        </article>
+        <article class="card">
+            <div class="card-icon">🔑</div>
+            <h3>1Password</h3>
+            <p>Платена услуга за управление на пароли и други чувствителни данни.</p>
+        </article>
+        <article class="card">
+            <div class="card-icon">🍎</div>
+            <h3>Apple Passwords</h3>
+            <p>Вградено решение за пароли в поддържаните устройства и софтуер на Apple.</p>
+        </article>
+        <article class="card">
+            <div class="card-icon">🌐</div>
+            <h3>Google Password Manager</h3>
+            <p>Управлява пароли и данни за вход в екосистемата на Google.</p>
+        </article>
+    </div>
+
+    <div class="callout">
+        Защити мениджъра със силна основна парола и многофакторна
+        автентикация, когато е налична. Пази възстановителните кодове.
+    </div>
+</section>
+
+<section class="section" id="twofa">
+    <span class="tag">03 / TWO-FACTOR AUTHENTICATION</span>
+    <h2 class="section-title">Втори слой на защита</h2>
+    <p>
+        Двуфакторната автентикация (2FA) изисква две различни доказателства
+        за самоличност. Така откраднатата парола не винаги е достатъчна
+        за достъп до акаунта.
+    </p>
+
+    <div class="grid">
+        <article class="card">
+            <div class="card-icon">📩</div>
+            <h3>SMS кодове</h3>
+            <p>Удобни са, но могат да бъдат уязвими към измами със SIM карта.</p>
+        </article>
+        <article class="card">
+            <div class="card-icon">📲</div>
+            <h3>Приложения за кодове</h3>
+            <p>Генерират временни кодове на устройството без необходимост от SMS.</p>
+        </article>
+        <article class="card">
+            <div class="card-icon">🔐</div>
+            <h3>Хардуерни ключове</h3>
+            <p>Физически ключове, които осигуряват силна защита срещу много фишинг атаки.</p>
+        </article>
+        <article class="card">
+            <div class="card-icon">🪪</div>
+            <h3>Passkeys</h3>
+            <p>Използват криптографски ключове и са устойчиви на фишинг при правилна употреба.</p>
+        </article>
+    </div>
+</section>
+
+<section class="section">
+    <span class="tag">04 / COMPARISON</span>
+    <h2 class="section-title">Кой метод да избереш?</h2>
+
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>Метод</th>
+                <th>Защита</th>
+                <th>Особености</th>
+            </tr>
+            <tr>
+                <td>Само парола</td>
+                <td>Зависи от паролата</td>
+                <td>Лесна за използване, но може да бъде открадната.</td>
+            </tr>
+            <tr>
+                <td>SMS код</td>
+                <td>Допълнителна</td>
+                <td>Удобен, но уязвим към някои атаки срещу телефонния номер.</td>
+            </tr>
+            <tr>
+                <td>Приложение за кодове</td>
+                <td>Висока</td>
+                <td>Генерира временни кодове без SMS.</td>
+            </tr>
+            <tr>
+                <td>Хардуерен ключ</td>
+                <td>Много висока</td>
+                <td>Силна защита срещу фишинг, но изисква физически ключ.</td>
+            </tr>
+            <tr>
+                <td>Passkey</td>
+                <td>Много висока</td>
+                <td>Устойчив на фишинг; поддръжката зависи от услугата.</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section class="section">
+    <span class="tag">05 / SECURITY CHECKLIST</span>
+    <h2 class="section-title">Провери навиците си</h2>
+
+    <div class="grid">
+        <article class="card">
+            <h3>✓ Уникални пароли</h3>
+            <p>Не използвай една парола за различни сайтове.</p>
+        </article>
+        <article class="card">
+            <h3>✓ Двуфакторна защита</h3>
+            <p>Активирай я за имейла и важните си акаунти.</p>
+        </article>
+        <article class="card">
+            <h3>✓ Внимание към измами</h3>
+            <p>Не споделяй кодове и проверявай подозрителните съобщения.</p>
+        </article>
+        <article class="card">
+            <h3>✓ Резервни копия</h3>
+            <p>Съхранявай важните данни и възстановителните кодове безопасно.</p>
+        </article>
+    </div>
+</section>
+
+<div class="next">
+    <span class="tag">CYBERGUARD · COMPLETE</span>
+    <h2 class="section-title">Сигурността започва от теб.</h2>
+    <p>Използвай технологиите разумно и защитавай личната си информация.</p>
+    <a class="button" href="index.html">← ОБРАТНО КЪМ ЧАСТ 1</a>
+</div>
+
+</main>
+
+<footer>
+    CYBERGUARD © 2026 · Образователен проект за мобилна сигурност
+</footer>
+
+</body>
+</html>
