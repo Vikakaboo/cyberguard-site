@@ -5,7 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CYBERGUARD | Мобилна сигурност</title>
-
 <style>
 :root {
     --bg: #080b14;
@@ -16,261 +15,106 @@
     --muted: #9caec8;
     --border: rgba(148,163,184,.18);
 }
-
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
     margin: 0;
-    background:
-        radial-gradient(ellipse at 10% 0%, #172554 0, transparent 35%),
-        radial-gradient(ellipse at 95% 25%, #2e1065 0, transparent 30%),
-        var(--bg);
+    background: radial-gradient(ellipse at 10% 0%, #172554 0, transparent 35%),
+    radial-gradient(ellipse at 95% 25%, #2e1065 0, transparent 30%), var(--bg);
     color: var(--text);
     font-family: Arial, sans-serif;
     line-height: 1.7;
 }
-
 nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding: 16px 7%;
+    position: sticky; top: 0; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 15px; padding: 16px 7%;
     background: rgba(8,11,20,.88);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border);
 }
-
-.logo {
-    font-size: 21px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: var(--blue);
-}
-
-.navlinks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
+.logo { font-size: 21px; font-weight: 900; letter-spacing: 2px; color: var(--blue); }
+.navlinks { display: flex; flex-wrap: wrap; gap: 10px; }
 a { color: inherit; }
-
 .navlinks a {
-    color: var(--muted);
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 9px;
-    font-size: 14px;
+    color: var(--muted); text-decoration: none;
+    padding: 8px 12px; border-radius: 9px; font-size: 14px;
 }
-
-.navlinks a:hover {
-    color: var(--blue);
-    background: #172033;
-}
-
+.navlinks a:hover { color: var(--blue); background: #172033; }
 .hero {
-    min-height: 460px;
-    padding: 90px 8%;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    min-height: 460px; padding: 90px 8%;
+    display: flex; align-items: center; gap: 40px;
+    justify-content: space-between; flex-wrap: wrap;
 }
-
 .hero-text { max-width: 650px; }
-
 .eyebrow {
-    display: inline-block;
-    color: var(--blue);
-    border: 1px solid #2563eb;
-    border-radius: 30px;
-    padding: 6px 13px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    display: inline-block; color: var(--blue);
+    border: 1px solid #2563eb; border-radius: 30px;
+    padding: 6px 13px; font-size: 12px;
+    letter-spacing: 2px; text-transform: uppercase;
 }
-
-h1 {
-    font-size: clamp(38px, 6vw, 70px);
-    line-height: 1.08;
-    margin: 22px 0;
-    letter-spacing: -2px;
-}
-
+h1 { font-size: clamp(38px, 6vw, 70px); line-height: 1.08; margin: 22px 0; letter-spacing: -2px; }
 .gradient {
     background: linear-gradient(90deg, var(--blue), var(--purple));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-
 p { color: var(--muted); }
-
 .hero p { font-size: 18px; }
-
 .shield {
-    width: 180px;
-    height: 180px;
-    flex-shrink: 0;
-    border: 1px solid #38bdf8;
-    border-radius: 40px;
-    display: grid;
-    place-items: center;
-    font-size: 90px;
+    width: 180px; height: 180px; flex-shrink: 0;
+    border: 1px solid #38bdf8; border-radius: 40px;
+    display: grid; place-items: center; font-size: 90px;
     background: linear-gradient(135deg, #10243b, #211641);
     box-shadow: 0 0 60px #38bdf833;
     animation: float 4s ease-in-out infinite;
 }
-
 @keyframes float {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-12px); }
 }
-
 .button {
-    display: inline-block;
-    padding: 13px 20px;
-    border-radius: 10px;
+    display: inline-block; padding: 13px 20px; border-radius: 10px;
     background: linear-gradient(100deg, #38bdf8, #818cf8);
-    color: #07111f;
-    font-weight: bold;
-    text-decoration: none;
-    margin: 8px 8px 0 0;
-    transition: .25s;
+    color: #07111f; font-weight: bold; text-decoration: none;
+    margin: 8px 8px 0 0; transition: .25s;
 }
-
-.button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px #38bdf844;
-}
-
-.button.secondary {
-    background: transparent;
-    border: 1px solid #52617a;
-    color: var(--text);
-}
-
-main {
-    width: 88%;
-    max-width: 1150px;
-    margin: auto;
-}
-
-.section {
-    padding: 35px 0;
-    scroll-margin-top: 85px;
-}
-
-.section-title {
-    font-size: clamp(27px, 4vw, 40px);
-    margin-bottom: 8px;
-}
-
-.section-intro {
-    max-width: 700px;
-    margin-bottom: 25px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 18px;
-}
-
+.button:hover { transform: translateY(-3px); box-shadow: 0 8px 30px #38bdf844; }
+.button.secondary { background: transparent; border: 1px solid #52617a; color: var(--text); }
+main { width: 88%; max-width: 1150px; margin: auto; }
+.section { padding: 35px 0; scroll-margin-top: 85px; }
+.section-title { font-size: clamp(27px, 4vw, 40px); margin-bottom: 8px; }
+.section-intro { max-width: 700px; margin-bottom: 25px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
 .card {
-    padding: 25px;
-    border: 1px solid var(--border);
+    padding: 25px; border: 1px solid var(--border);
     background: linear-gradient(145deg, #141e30dd, #0d1320ee);
-    border-radius: 18px;
-    transition: .3s;
+    border-radius: 18px; transition: .3s;
 }
-
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #38bdf866;
-    box-shadow: 0 12px 35px #0005;
-}
-
-.card-icon {
-    font-size: 32px;
-    margin-bottom: 8px;
-}
-
+.card:hover { transform: translateY(-5px); border-color: #38bdf866; box-shadow: 0 12px 35px #0005; }
+.card-icon { font-size: 32px; margin-bottom: 8px; }
 .card h3 { margin: 5px 0 10px; }
-
 .card p { margin-bottom: 0; }
-
 .callout {
-    margin-top: 20px;
-    padding: 20px;
-    border-left: 4px solid var(--blue);
-    background: #102238;
+    margin-top: 20px; padding: 20px;
+    border-left: 4px solid var(--blue); background: #102238;
     border-radius: 0 12px 12px 0;
 }
-
-.table-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--border);
-    border-radius: 15px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 570px;
-    background: #0e1421;
-}
-
-th, td {
-    padding: 17px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-}
-
-th {
-    background: #17243a;
-    color: var(--blue);
-}
-
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 15px; }
+table { width: 100%; border-collapse: collapse; min-width: 570px; background: #0e1421; }
+th, td { padding: 17px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { background: #17243a; color: var(--blue); }
 tr:last-child td { border-bottom: 0; }
-
 tr:hover td { background: #162238; }
-
 .tag {
-    display: inline-block;
-    font-size: 12px;
-    padding: 4px 9px;
-    border-radius: 20px;
-    color: #7dd3fc;
-    background: #12304a;
+    display: inline-block; font-size: 12px; padding: 4px 9px;
+    border-radius: 20px; color: #7dd3fc; background: #12304a;
 }
-
 .next {
-    text-align: center;
-    padding: 40px 25px;
-    margin: 40px 0 60px;
-    border: 1px solid #38466b;
-    border-radius: 24px;
+    text-align: center; padding: 40px 25px; margin: 40px 0 60px;
+    border: 1px solid #38466b; border-radius: 24px;
     background: linear-gradient(130deg, #12223b, #21183e);
 }
-
-footer {
-    text-align: center;
-    padding: 25px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 13px;
-}
-
+footer { text-align: center; padding: 25px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
 @media(max-width:600px) {
     nav { padding: 14px 5%; }
     .hero { padding: 65px 6%; }
@@ -279,182 +123,82 @@ footer {
 }
 </style>
 </head>
-
 <body>
-
 <nav>
     <div class="logo">◈ CYBERGUARD</div>
     <div class="navlinks">
         <a href="#social">Социални мрежи</a>
         <a href="#risks">Рискове</a>
         <a href="#devices">Устройства</a>
-        <a href="part2.html">Част 2 ↗</a>
+        <a href="part2.html">Пароли и защита ↗</a>
     </div>
 </nav>
-
 <header class="hero">
     <div class="hero-text">
         <span class="eyebrow">DIGITAL SECURITY · 01</span>
         <h1>Твоят телефон.<br><span class="gradient">Твоите правила.</span></h1>
-        <p>
-            Открий как да защитаваш личните си данни, да разпознаваш
-            онлайн измамите и да използваш телефона си по-безопасно.
-        </p>
+        <p>Открий как да защитаваш личните си данни, да разпознаваш онлайн измамите и да използваш телефона си по-безопасно.</p>
         <a class="button" href="#social">Разгледай проекта ↓</a>
-        <a class="button secondary" href="part2.html">Към част 2 →</a>
+        <a class="button secondary" href="part2.html">Пароли и защита →</a>
     </div>
     <div class="shield">🛡</div>
 </header>
-
 <main>
-
 <section class="section" id="social">
     <span class="tag">01 / SOCIAL MEDIA</span>
     <h2 class="section-title">Социални мрежи и лични данни</h2>
-    <p class="section-intro">
-        Instagram, TikTok, Facebook и Snapchat ни свързват с хората,
-        но споделянето на прекалено много информация може да създаде рискове.
-    </p>
-
+    <p class="section-intro">Instagram, TikTok, Facebook и Snapchat ни свързват с хората, но споделянето на прекалено много информация може да създаде рискове.</p>
     <div class="grid">
-        <article class="card">
-            <div class="card-icon">👁</div>
-            <h3>Лична информация</h3>
-            <p>Не публикувай адрес, телефон, документи или информация, която може да разкрие ежедневните ти навици.</p>
-        </article>
-        <article class="card">
-            <div class="card-icon">📍</div>
-            <h3>Местоположение</h3>
-            <p>Изключвай ненужния достъп до местоположението и внимавай кога и къде публикуваш снимки.</p>
-        </article>
-        <article class="card">
-            <div class="card-icon">🔒</div>
-            <h3>Личен профил</h3>
-            <p>Преглеждай настройките за поверителност и приемай заявки от хора, които познаваш.</p>
-        </article>
-        <article class="card">
-            <div class="card-icon">💬</div>
-            <h3>Съобщения</h3>
-            <p>Не отваряй подозрителни линкове и никога не споделяй кодове за потвърждение.</p>
-        </article>
+        <article class="card"><div class="card-icon">👁</div><h3>Лична информация</h3><p>Не публикувай адрес, телефон, документи или информация, която може да разкрие ежедневните ти навици.</p></article>
+        <article class="card"><div class="card-icon">📍</div><h3>Местоположение</h3><p>Изключвай ненужния достъп до местоположението и внимавай кога и къде публикуваш снимки.</p></article>
+        <article class="card"><div class="card-icon">🔒</div><h3>Личен профил</h3><p>Преглеждай настройките за поверителност и приемай заявки от хора, които познаваш.</p></article>
+        <article class="card"><div class="card-icon">💬</div><h3>Съобщения</h3><p>Не отваряй подозрителни линкове и никога не споделяй кодове за потвърждение.</p></article>
     </div>
 </section>
-
 <section class="section" id="risks">
     <span class="tag">02 / THREATS</span>
     <h2 class="section-title">Разпознай опасността</h2>
     <p class="section-intro">Четири често срещани заплахи и начини за предпазване.</p>
-
     <div class="grid">
-        <article class="card">
-            <div class="card-icon">🎣</div>
-            <h3>Фишинг</h3>
-            <p>Измамни съобщения те подканват да въведеш парола. Проверявай адреса на сайта, преди да влезеш.</p>
-        </article>
-        <article class="card">
-            <div class="card-icon">🦠</div>
-            <h3>Злонамерени приложения</h3>
-            <p>Използвай надеждни магазини и не давай ненужен достъп до камерата, микрофона и файловете си.</p>
-        </article>
-        <article class="card">
-            <div class="card-icon">📶</div>
-            <h3>Публичен Wi-Fi</h3>
-            <p>Избягвай чувствителни операции в съмнителни мрежи и не се свързвай автоматично с непознати точки за достъп.</p>
-        </article>
-        <article class="card">
-            <div class="card-icon">📱</div>
-            <h3>Загубен телефон</h3>
-            <p>Използвай заключване на екрана, резервни копия и функция за намиране или дистанционно изтриване.</p>
-        </article>
+        <article class="card"><div class="card-icon">🎣</div><h3>Фишинг</h3><p>Измамни съобщения те подканват да въведеш парола. Проверявай адреса на сайта, преди да влезеш.</p></article>
+        <article class="card"><div class="card-icon">🦠</div><h3>Злонамерени приложения</h3><p>Използвай надеждни магазини и не давай ненужен достъп до камерата, микрофона и файловете си.</p></article>
+        <article class="card"><div class="card-icon">📶</div><h3>Публичен Wi-Fi</h3><p>Избягвай чувствителни операции в съмнителни мрежи и не се свързвай автоматично с непознати точки за достъп.</p></article>
+        <article class="card"><div class="card-icon">📱</div><h3>Загубен телефон</h3><p>Използвай заключване на екрана, резервни копия и функция за намиране или дистанционно изтриване.</p></article>
     </div>
-
-    <div class="callout">
-        <strong>Златно правило:</strong>
-        Ако съобщението те притиска да действаш веднага, спри и провери дали е истинско.
-    </div>
+    <div class="callout"><strong>Златно правило:</strong> Ако съобщението те притиска да действаш веднага, спри и провери дали е истинско.</div>
 </section>
-
 <section class="section" id="devices">
     <span class="tag">03 / DEVICE SECURITY</span>
     <h2 class="section-title">iOS срещу Samsung Knox</h2>
-    <p class="section-intro">
-        Две различни технологии с обща цел — защита на устройството
-        и личните данни.
-    </p>
-
+    <p class="section-intro">Две различни технологии с обща цел — защита на устройството и личните данни.</p>
     <div class="table-wrap">
         <table>
-            <tr>
-                <th>Критерий</th>
-                <th>Apple iOS</th>
-                <th>Samsung Knox</th>
-            </tr>
-            <tr>
-                <td>Система</td>
-                <td>iOS за iPhone</td>
-                <td>Платформа за сигурност в поддържани Galaxy устройства</td>
-            </tr>
-            <tr>
-                <td>Защита</td>
-                <td>Изолиране на приложения и системни защитни механизми</td>
-                <td>Хардуерно подпомогната защита при съвместимите модели</td>
-            </tr>
-            <tr>
-                <td>Биометрия</td>
-                <td>Face ID или Touch ID според модела</td>
-                <td>Пръстов отпечатък или разпознаване на лице според модела</td>
-            </tr>
-            <tr>
-                <td>Актуализации</td>
-                <td>Зависят от поддръжката на модела</td>
-                <td>Зависят от модела и политиката за поддръжка</td>
-            </tr>
-            <tr>
-                <td>Допълнителни функции</td>
-                <td>Инструменти за поверителност и управление на разрешенията</td>
-                <td>Защитени области и инструменти за управление на работни данни при поддържаните устройства</td>
-            </tr>
+            <tr><th>Критерий</th><th>Apple iOS</th><th>Samsung Knox</th></tr>
+            <tr><td>Система</td><td>iOS за iPhone</td><td>Платформа за сигурност в поддържани Galaxy устройства</td></tr>
+            <tr><td>Защита</td><td>Изолиране на приложения и системни защитни механизми</td><td>Хардуерно подпомогната защита при съвместимите модели</td></tr>
+            <tr><td>Биометрия</td><td>Face ID или Touch ID според модела</td><td>Пръстов отпечатък или разпознаване на лице според модела</td></tr>
+            <tr><td>Актуализации</td><td>Зависят от поддръжката на модела</td><td>Зависят от модела и политиката за поддръжка</td></tr>
+            <tr><td>Допълнителни функции</td><td>Инструменти за поверителност и управление на разрешенията</td><td>Защитени области и инструменти за управление на работни данни при поддържаните устройства</td></tr>
         </table>
     </div>
-
-    <div class="callout">
-        Нито една система не е напълно защитена от всички заплахи.
-        Актуализациите и правилните настройки са важни и при двете.
-    </div>
+    <div class="callout">Нито една система не е напълно защитена от всички заплахи. Актуализациите и правилните настройки са важни и при двете.</div>
 </section>
-
 <section class="section">
     <span class="tag">04 / DAILY HABITS</span>
     <h2 class="section-title">Ежедневна дигитална хигиена</h2>
-
     <div class="grid">
-        <article class="card">
-            <h3>✓ Заключвай</h3>
-            <p>Използвай силен PIN код или биометрия.</p>
-        </article>
-        <article class="card">
-            <h3>✓ Актуализирай</h3>
-            <p>Инсталирай актуализации на системата и приложенията.</p>
-        </article>
-        <article class="card">
-            <h3>✓ Проверявай</h3>
-            <p>Преглеждай разрешенията и известията за подозрителен достъп.</p>
-        </article>
+        <article class="card"><h3>✓ Заключвай</h3><p>Използвай силен PIN код или биометрия.</p></article>
+        <article class="card"><h3>✓ Актуализирай</h3><p>Инсталирай актуализации на системата и приложенията.</p></article>
+        <article class="card"><h3>✓ Проверявай</h3><p>Преглеждай разрешенията и известията за подозрителен достъп.</p></article>
     </div>
 </section>
-
 <div class="next">
-    <span class="tag">NEXT LEVEL · 02</span>
-    <h2 class="section-title">Готов ли си за следващото ниво?</h2>
-    <p>Научи как да създаваш силни пароли и да защитаваш акаунтите си.</p>
-    <a class="button" href="part2.html">ОТВОРИ ЧАСТ 2 →</a>
+    <span class="tag">CYBERGUARD · SECURITY</span>
+    <h2 class="section-title">Защити още по-добре акаунтите си.</h2>
+    <p>Научи как да създаваш силни пароли и да защитаваш личните си профили.</p>
+    <a class="button" href="part2.html">ПАРОЛИ И ЗАЩИТА →</a>
 </div>
-
 </main>
-
-<footer>
-    CYBERGUARD © 2026 · Образователен проект за мобилна сигурност
-</footer>
-
+<footer>CYBERGUARD © 2026 · Образователен проект за мобилна сигурност</footer>
 </body>
 </html>
